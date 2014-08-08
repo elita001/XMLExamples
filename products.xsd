@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/Shutov_schema"
+	xmlns:tns="http://www.example.org/Shutov_schema">
+	<element name="categories" type="tns:categories"></element>
+	<complexType name="categories">
+			<sequence>
+				<element name="category" type="tns:category" minOccurs="0" maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+	<complexType name="category">		
+		<sequence>
+			<element name="subcategory" type="tns:subcategory" minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+	</complexType>	
+	<complexType name="subcategory">		
+		<sequence>
+			<element name="product" type="tns:product" minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+	</complexType>
+	<complexType name="product">		
+		<sequence>
+			<element name="manufacturer" type="string"></element>
+			<element name="model">
+				<simpleType>
+					<restriction base="string">
+						<pattern value="([a-zA-Z]{2})([0-9]{3})"></pattern>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="date">
+				<simpleType>
+					<restriction base="string">
+						<pattern value="((0[1-9])|([12][0-9])|(3[01]))-((0[1-9])|(1[0-2]))-([12]([0-9]{3}))"></pattern>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="colour" type="string"></element>
+			<element name="price">
+				<simpleType>
+					<restriction base="double">
+						<minInclusive value="0.0"></minInclusive>
+					</restriction>
+				</simpleType>
+			</element>
+			<choice>			
+				<element name="quantity">
+					<simpleType>
+						<restriction base="integer">
+							<minExclusive value="0"></minExclusive>
+						</restriction>
+					</simpleType>					
+				</element>							
+				<element name="available" fixed="false">				
+				</element>
+			</choice>			
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+	</complexType>	
+</schema>
