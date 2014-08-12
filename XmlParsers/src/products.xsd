@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/Shutov_schema"
+	xmlns:tns="http://www.example.org/Shutov_schema">
+	<element name="categories" type="tns:categories"></element>
+	<complexType name="categories">
+			<sequence>
+				<element name="category" type="tns:category" minOccurs="0" maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+	<complexType name="category">		
+		<sequence>
+			<element name="subcategory" type="tns:subcategory" minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+	</complexType>	
+	<complexType name="subcategory">		
+		<sequence>
+			<element name="product" type="tns:product" minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+	</complexType>
+	<complexType name="product">		
+		<sequence>
+			<element name="manufacturer" type="string"></element>
+			<element name="model" type="tns:model"></element>
+			<element name="date" type="tns:date"></element>
+			<element name="colour" type="string"></element>
+			<element name="price" type="tns:price"></element>
+			<choice>			
+				<element name="quantity" type="tns:quantity"></element>							
+				<element name="available" type="boolean" fixed="false">				
+				</element>
+			</choice>			
+		</sequence>
+		<attribute name="name" type="string" use="required" />
+	</complexType>	
+	<simpleType name="model">
+		<restriction base="string">
+			<pattern value="([a-zA-Z]{2})([0-9]{3})"></pattern>
+		</restriction>
+	</simpleType>
+	<simpleType name="date">
+		<restriction base="string">
+			<pattern value="((0[1-9])|([12][0-9])|(3[01]))-((0[1-9])|(1[0-2]))-([12]([0-9]{3}))"></pattern>
+		</restriction>
+	</simpleType>
+	<simpleType name="price">
+		<restriction base="double">
+			<minInclusive value="0.0"></minInclusive>
+		</restriction>
+	</simpleType>
+	<simpleType name="quantity">
+		<restriction base="int">
+			<minExclusive value="0"></minExclusive>
+		</restriction>
+	</simpleType>				
+</schema>

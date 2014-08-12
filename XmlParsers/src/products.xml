@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:categories xmlns:tns="http://www.example.org/Shutov_schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Shutov_schema products.xsd ">
+	<category name="cameras and videocameras">
+		<subcategory name="cameras">
+			<product name="camera Canon">
+				<manufacturer>Russia</manufacturer>
+				<model>ba123</model>
+				<date>21-12-2013</date>
+				<colour>red</colour>
+				<price>2000.39</price>
+				<quantity>1</quantity>
+			</product>
+			<product name="camera Sony">
+				<manufacturer>USA</manufacturer>
+				<model>aa333</model>
+				<date>12-11-2013</date>
+				<colour>yellow</colour>
+				<price>1500.00</price>
+				<quantity>28</quantity>
+			</product>
+		</subcategory>		
+		<subcategory name="videocameras">
+			<product name="videocamera Canon">
+				<manufacturer>Germany</manufacturer>
+				<model>oi872</model>
+				<date>05-02-2014</date>
+				<colour>green</colour>
+				<price>3500.00</price>
+				<available>false</available>
+			</product>
+			<product name="videocamera Danon">
+				<manufacturer>Germany</manufacturer>
+				<model>oi111</model>
+				<date>05-02-2014</date>
+				<colour>yellow</colour>
+				<price>3500.00</price>
+				<quantity>21</quantity>
+			</product>
+			<product name="videocamera Mamon">
+				<manufacturer>Germany</manufacturer>
+				<model>oi234</model>
+				<date>05-02-2014</date>
+				<colour>pink</colour>
+				<price>4500.00</price>
+				<available>false</available>
+			</product>
+		</subcategory>
+	</category>
+	<category name="computer accessories">
+		<subcategory name="memory modules">
+		</subcategory>
+	</category>
+	<category name="games">
+	</category>
+</tns:categories>
